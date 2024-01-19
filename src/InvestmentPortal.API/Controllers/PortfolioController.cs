@@ -1,4 +1,5 @@
-﻿using InvestmentPortal.Domain.Entities;
+﻿using InvestmentPortal.API.Persistence.Interfaces;
+using InvestmentPortal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortal.API.Controllers
@@ -8,33 +9,18 @@ namespace InvestmentPortal.API.Controllers
     public class PortfolioController
     {
         private readonly ILogger<PortfolioController> _logger;
+        private IRepository<Portfolio> _repository;
 
-        private readonly List<Portfolio> portfolios = new List<Portfolio>
-        {
-            new Portfolio
-            {
-                Id = 1,
-                UserId = 1,
-                AssetId = 1,
-                Quantity = 10
-            },
-            new Portfolio
-            {
-                Id = 2,
-                UserId = 1,
-                AssetId = 2,
-                Quantity = 10
-            }
-        };
-        public PortfolioController(ILogger<PortfolioController> logger)
+        public PortfolioController(ILogger<PortfolioController> logger, IRepository<Portfolio> repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
         [HttpGet(Name = "GetPortfolio")]
         public IEnumerable<Portfolio> Get()
         {
-            return portfolios;
+            return _repository.GetAll<Portfolio>();
         }
     }
 }

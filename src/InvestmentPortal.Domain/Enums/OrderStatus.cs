@@ -2,7 +2,7 @@
 {
     public enum OrderStatus
     {
-        Pending,
+        Pending = 1,
         Executed,
         Cancelled,
         Rejected,

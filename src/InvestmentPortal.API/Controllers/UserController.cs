@@ -1,4 +1,5 @@
-﻿using InvestmentPortal.Domain.Entities;
+﻿using InvestmentPortal.API.Persistence.Interfaces;
+using InvestmentPortal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortal.API.Controllers
@@ -7,27 +8,19 @@ namespace InvestmentPortal.API.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly List<User> users = new List<User>
-        {
-            new User
-            {
-                Id = 1,
-                Name = "User 1",
-                Email = "jandersoncampelo@gmail.com"
-            }
-        };
-
         private readonly ILogger<UserController> _logger;
+        private IRepository<User> _repository;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(ILogger<UserController> logger, IRepository<User> repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
         [HttpGet(Name = "GetUsers")]
         public IEnumerable<User> Get()
         {
-            return users;
+            return _repository.GetAll<User>();
         }
     }
 }
