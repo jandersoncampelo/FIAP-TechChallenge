@@ -1,10 +1,10 @@
-﻿using InvestmentPortal.Domain.Enums;
+﻿using InvestmentPortal.Domain.Core;
+using InvestmentPortal.Domain.Enums;
 
 namespace InvestmentPortal.Domain.Entities
 {
-    public class InvestmentOrder
+    public class InvestmentOrder : Entity
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int AssetId { get; set; }
         public decimal Quantity { get; set; }

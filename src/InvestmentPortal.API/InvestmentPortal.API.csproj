@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistence\Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\InvestmentPortal.Domain\InvestmentPortal.Domain.csproj" />
   </ItemGroup>
 

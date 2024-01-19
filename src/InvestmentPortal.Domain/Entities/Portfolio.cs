@@ -1,8 +1,9 @@
-﻿namespace InvestmentPortal.Domain.Entities
+﻿using InvestmentPortal.Domain.Core;
+
+namespace InvestmentPortal.Domain.Entities
 {
-    public class Portfolio
+    public class Portfolio : Entity
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int AssetId { get; set; }
         public decimal Quantity { get; set; }

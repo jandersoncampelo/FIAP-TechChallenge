@@ -5,11 +5,6 @@ namespace Infrastructure.Persistence
 {
     public class MainContext : DbContext
     {
-        public DbSet<User> Users { get; set; } = null!;
-        public DbSet<Asset> Assets { get; set; } = null!;
-        public DbSet<Portfolio> Portfolios { get; set; } = null!;
-        public DbSet<InvestmentOrder> InvestmentOrders { get; set; } = null!;
-
         public MainContext(DbContextOptions<MainContext> options) : base(options)
         {
 
