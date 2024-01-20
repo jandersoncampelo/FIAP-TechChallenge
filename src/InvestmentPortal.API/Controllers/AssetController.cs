@@ -1,6 +1,5 @@
-﻿using InvestmentPortal.API.Persistence.Interfaces;
-using InvestmentPortal.Domain.Entities;
-using InvestmentPortal.Domain.Enums;
+﻿using InvestmentPortal.API.Application.DTOs;
+using InvestmentPortal.API.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortal.API.Controllers
@@ -10,18 +9,24 @@ namespace InvestmentPortal.API.Controllers
     public class AssetController : ControllerBase
     {
         private readonly ILogger<AssetController> _logger;
-        private readonly IRepository<Asset> _repository;
+        private readonly IAssetAppService _appService;
 
-        public AssetController(ILogger<AssetController> logger, IRepository<Asset> repository)
+        public AssetController(ILogger<AssetController> logger, IAssetAppService assetAppService)
         {
             _logger = logger;
-            _repository = repository;
+            _appService = assetAppService;
         }
 
         [HttpGet(Name = "GetAssets")]
-        public IEnumerable<Asset> Get()
+        public async Task<IActionResult> GetAsync()
         {
-            return _repository.GetAll<Asset>();
+            var result = await _appService.GetAllAsync();
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
         }
     }
 }

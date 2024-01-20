@@ -1,4 +1,6 @@
 using Infrastructure.Persistence;
+using InvestmentPortal.API.Application.Interfaces;
+using InvestmentPortal.API.Application.Services;
 using InvestmentPortal.API.Persistence.Interfaces;
 using InvestmentPortal.API.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +13,9 @@ builder.Services.AddDbContext<MainContext>(options =>
 
 //injetar dependencias de repositorios
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IAssetRepository, AssetRepository>();
+
+builder.Services.AddTransient<IAssetAppService, AssetAppService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
