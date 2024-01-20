@@ -6,8 +6,8 @@ namespace InvestmentPortal.API.Application.Interfaces
     {
         Task<IList<AssetDto>> GetAllAsync();
         Task<AssetDto> GetByIdAsync(int id);
-        Task CreateAsync(AssetCreateDto createDTO);
-        Task UpdateAsync(int id, AssetUpdateDto updateDTO);
+        Task<AssetDto> CreateAsync(AssetCreateDto createDTO);
+        Task<AssetDto> UpdateAsync(int id, AssetUpdateDto updateDTO);
         Task RemoveAsync(int id);
     }
 }

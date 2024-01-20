@@ -28,5 +28,41 @@ namespace InvestmentPortal.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("{id}", Name = "GetAsset")]
+        public async Task<IActionResult> GetAsync(int id)
+        {
+            var result = await _appService.GetByIdAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPost(Name = "CreateAsset")]
+        public async Task<IActionResult> PostAsync([FromBody] AssetCreateDto asset)
+        {
+            var result = await _appService.CreateAsync(asset);
+            if (result == null)
+            {
+                return BadRequest();
+            }
+
+            return CreatedAtRoute("GetAsset", new { id = result.Id }, result);
+        }
+
+        [HttpPut("{id}", Name = "UpdateAsset")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] AssetUpdateDto asset)
+        {
+            var result = await _appService.UpdateAsync(id, asset);
+            if (result == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(result);
+        }
     }
 }

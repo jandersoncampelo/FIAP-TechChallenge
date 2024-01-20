@@ -17,8 +17,8 @@ namespace InvestmentPortal.API.Controllers
             _repository = repository;
         }
 
-        [HttpGet(Name = "GetUsers")]
-        public IEnumerable<User> Get()
+        [HttpPost(Name = "Register")]
+        public IEnumerable<User> UserRegister()
         {
             return _repository.GetAll<User>();
         }

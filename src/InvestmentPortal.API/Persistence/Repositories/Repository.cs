@@ -9,16 +9,20 @@ namespace InvestmentPortal.API.Persistence.Repositories
     {
         protected MainContext _context = context;
 
-        public void Add<T>(T entity) where T : Entity
+        public T Add<T>(T entity) where T : Entity
         {
             _context.Set<T>().Add(entity);
-            _context.SaveChanges();
+            var entityId = _context.SaveChanges();
+
+            return _context.Set<T>().Find(entityId);
         }
 
-        public async Task AddAsync<T>(T entity) where T : Entity
+        public async Task<T> AddAsync<T>(T entity) where T : Entity
         {
             await _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
+            var entityId = await _context.SaveChangesAsync();
+
+            return await _context.Set<T>().FindAsync(entityId);
         }
 
         public IQueryable<T> GetAll<T>() where T : Entity
@@ -53,16 +57,20 @@ namespace InvestmentPortal.API.Persistence.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public void Update<T>(T entity) where T : Entity
+        public T Update<T>(T entity) where T : Entity
         {
             _context.Set<T>().Update(entity);
-            _context.SaveChanges();
+            var entityId = _context.SaveChanges();
+
+            return _context.Set<T>().Find(entityId);
         }
 
-        public async Task UpdateAsync<T>(T entity) where T : Entity
+        public async Task<T> UpdateAsync<T>(T entity) where T : Entity
         {
             await Task.Run(() => _context.Set<T>().Update(entity));
-            await _context.SaveChangesAsync();
+            var entityId = await _context.SaveChangesAsync();
+
+            return await _context.Set<T>().FindAsync(entityId);
 
         }
     }

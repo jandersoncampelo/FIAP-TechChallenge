@@ -14,7 +14,7 @@ namespace InvestmentPortal.API.Application.Services
             _repository = assetRepository;
         }
 
-        public async Task CreateAsync(AssetCreateDto createDTO)
+        public async Task<AssetDto> CreateAsync(AssetCreateDto createDTO)
         {
             if (createDTO == null || string.IsNullOrEmpty(createDTO.Symbol))
             {
@@ -23,7 +23,9 @@ namespace InvestmentPortal.API.Application.Services
 
             _ = await _repository.GetBySymbolAsync(createDTO.Symbol) ?? throw new Exception("Asset already exists");
 
-            await _repository.AddAsync(new Asset(createDTO.Symbol, createDTO.Type, createDTO.Name, createDTO.Description));
+            var result = await _repository.AddAsync(new Asset(createDTO.Symbol, createDTO.Type, createDTO.Name, createDTO.Description));
+
+            return AssetDto.FromAsset(result);
         }
 
         public async Task<IList<AssetDto>> GetAllAsync()
@@ -45,14 +47,16 @@ namespace InvestmentPortal.API.Application.Services
             await _repository.RemoveAsync(assetToDelete);
         }
 
-        public async Task UpdateAsync(int id, AssetUpdateDto updateDTO)
+        public async Task<AssetDto> UpdateAsync(int id, AssetUpdateDto updateDTO)
         {
             var assetToUpdate = await _repository.GetByIdAsync<Asset>(id) ?? throw new Exception("Asset not found");
 
             assetToUpdate.Name = updateDTO.Name;
             assetToUpdate.Description = updateDTO.Description;
 
-            await _repository.UpdateAsync(assetToUpdate);
+            var result = await _repository.UpdateAsync(assetToUpdate);
+
+            return AssetDto.FromAsset(result);
         }
     }
 }
