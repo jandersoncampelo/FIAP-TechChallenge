@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using InvestmentPortal.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortal.API.Controllers
 {
@@ -12,23 +13,6 @@ namespace InvestmentPortal.API.Controllers
         {
             _logger = logger;
         }
-
-        [HttpPost(Name = "Authenticate")]
-        public IActionResult Authenticate()
-        {
-            return Ok();
-        }
-
-        [HttpPost(Name = "RefreshToken")]
-        public IActionResult RefreshToken()
-        {
-            return Ok();
-        }
-
-        [HttpPost(Name = "RevokeToken")]
-        public IActionResult RevokeToken()
-        {
-            return Ok();
-        }
     }
+
 }

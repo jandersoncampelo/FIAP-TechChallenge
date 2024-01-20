@@ -1,6 +1,11 @@
-﻿namespace InvestmentPortal.API.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace InvestmentPortal.API.Controllers
 {
-    public class AdminController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AdminController : ControllerBase
     {
+
     }
 }
