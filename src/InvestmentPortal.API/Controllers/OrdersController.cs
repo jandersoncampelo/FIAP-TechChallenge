@@ -1,12 +1,11 @@
 ﻿using InvestmentPortal.API.Persistence.Interfaces;
 using InvestmentPortal.Domain.Entities;
-using InvestmentPortal.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestmentPortal.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/orders")]
     public class OrdersController
     {
         private readonly ILogger<OrdersController> _logger;

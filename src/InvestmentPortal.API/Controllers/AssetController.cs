@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InvestmentPortal.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/assets")]
     public class AssetController : ControllerBase
     {
         private readonly ILogger<AssetController> _logger;

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InvestmentPortal.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/user/{userId}/portfolio")]
     public class PortfolioController
     {
         private readonly ILogger<PortfolioController> _logger;
