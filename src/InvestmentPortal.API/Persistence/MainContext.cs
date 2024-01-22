@@ -1,7 +1,7 @@
 ﻿using InvestmentPortal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Persistence
+namespace InvestmentPortal.API.Persistence
 {
     public class MainContext : DbContext
     {
@@ -24,7 +24,7 @@ namespace Infrastructure.Persistence
                     .ValueGeneratedNever()
                     .UseIdentityColumn();
 
-                u.Property(x => x.Name)
+                u.Property(x => x.UserName)
                     .IsUnicode(false)
                     .HasMaxLength(100)
                     .IsRequired();

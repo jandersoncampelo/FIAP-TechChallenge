@@ -1,7 +1,5 @@
-﻿using Infrastructure.Persistence;
-using InvestmentPortal.API.Persistence.Interfaces;
+﻿using InvestmentPortal.API.Persistence.Interfaces;
 using InvestmentPortal.Domain.Core;
-using Microsoft.EntityFrameworkCore;
 
 namespace InvestmentPortal.API.Persistence.Repositories
 {

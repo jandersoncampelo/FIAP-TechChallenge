@@ -1,5 +1,4 @@
-﻿using Infrastructure.Persistence;
-using InvestmentPortal.API.Persistence.Interfaces;
+﻿using InvestmentPortal.API.Persistence.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
