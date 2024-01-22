@@ -11,7 +11,8 @@ namespace InvestmentPortal.API.Application.DTOs
         string? Name,
         string? Description)
     {
-        internal static AssetDto FromAsset(Asset entity)
+
+        public static AssetDto FromAsset(Asset entity)
         {
             return new AssetDto(entity.Id, entity.Symbol, entity.Type, entity.Type.ToString(), entity.Name, entity.Description);
         }

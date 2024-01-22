@@ -5,6 +5,10 @@ namespace InvestmentPortal.Domain.Entities
 {
     public class Asset : Entity
     {
+        public Asset()
+        {
+        }
+
         public Asset(string? symbol, AssetType type, string? name, string? description)
         {
             Symbol = symbol;

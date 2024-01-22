@@ -1,5 +1,4 @@
 ﻿using InvestmentPortal.Domain.Enums;
-using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentPortal.API.Application.DTOs
 {
@@ -7,5 +6,6 @@ namespace InvestmentPortal.API.Application.DTOs
         string Symbol,
         AssetType Type,
         string? Name,
-        string? Description);
+        string? Description)
+    { };
 }

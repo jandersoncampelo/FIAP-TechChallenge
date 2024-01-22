@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.API", "src\InvestmentPortal.API\InvestmentPortal.API.csproj", "{E4A9C3D3-6799-443B-994F-A3A3AFC24804}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Domain", "src\InvestmentPortal.Domain\InvestmentPortal.Domain.csproj", "{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Domain", "src\InvestmentPortal.Domain\InvestmentPortal.Domain.csproj", "{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Tests", "tests\InvestmentPortal.Tests\InvestmentPortal.Tests.csproj", "{610EBCB5-370C-4302-B617-653F373A1C14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610EBCB5-370C-4302-B617-653F373A1C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610EBCB5-370C-4302-B617-653F373A1C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610EBCB5-370C-4302-B617-653F373A1C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610EBCB5-370C-4302-B617-653F373A1C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
