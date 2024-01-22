@@ -21,7 +21,7 @@ namespace InvestmentPortal.API.Persistence
 
                 u.HasKey(x => x.Id);
                 u.Property(x => x.Id)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .UseIdentityColumn();
 
                 u.Property(x => x.UserName)
@@ -59,7 +59,7 @@ namespace InvestmentPortal.API.Persistence
                 a.ToTable("TB_ASSET");
                 a.HasKey(x => x.Id);
                 a.Property(x => x.Id)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .UseIdentityColumn();
 
                 a.Property(x => x.Symbol)
@@ -92,7 +92,7 @@ namespace InvestmentPortal.API.Persistence
 
                 p.HasKey(x => x.Id);
                 p.Property(x => x.Id)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .UseIdentityColumn();
 
                 p.Property(x => x.UserId)
@@ -121,7 +121,7 @@ namespace InvestmentPortal.API.Persistence
 
                 i.HasKey(x => x.Id);
                 i.Property(x => x.Id)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .UseIdentityColumn();
 
                 i.Property(x => x.UserId)

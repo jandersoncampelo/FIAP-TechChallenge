@@ -8,7 +8,9 @@ namespace InvestmentPortal.API.Persistence.Repositories
     {
         public async Task<Asset> GetBySymbolAsync(string symbol)
         {
-            return await _context.Set<Asset>().FirstOrDefaultAsync(a => a.Symbol == symbol);
+            var result = await _context.Set<Asset>().FirstOrDefaultAsync(a => a.Symbol == symbol);
+
+            return result;
         }
     }
 }
