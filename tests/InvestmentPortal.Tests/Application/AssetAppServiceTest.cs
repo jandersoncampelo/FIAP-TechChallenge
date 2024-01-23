@@ -89,5 +89,31 @@ namespace InvestmentPortal.Tests.Application
             // Act & Assert
             await Assert.ThrowsAsync<Exception>(() => _assetAppService.CreateAsync(createDTO));
         }
+
+        [Fact]
+        public async Task RemoveAsync_ExistingAsset_RemovesAsset()
+        {
+            // Arrange
+            int assetId = 1;
+            var assetToDelete = new Asset("AAPL", AssetType.Stock, "Apple Inc.", "Technology company");
+            _repositoryMock.Setup(r => r.GetByIdAsync<Asset>(assetId)).ReturnsAsync(assetToDelete);
+
+            // Act
+            await _assetAppService.RemoveAsync(assetId);
+
+            // Assert
+            _repositoryMock.Verify(r => r.RemoveAsync(assetToDelete), Times.Once);
+        }
+
+        [Fact]
+        public async Task RemoveAsync_NonExistingAsset_ThrowsException()
+        {
+            // Arrange
+            int assetId = 1;
+            _repositoryMock.Setup(r => r.GetByIdAsync<Asset>(assetId)).ReturnsAsync((Asset)null);
+
+            // Act and Assert
+            await Assert.ThrowsAsync<Exception>(() => _assetAppService.RemoveAsync(assetId));
+        }
     }
 }
