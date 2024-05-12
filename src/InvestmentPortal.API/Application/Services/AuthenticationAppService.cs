@@ -24,7 +24,7 @@ namespace InvestmentPortal.API.Application.Services
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_config.GetValue<string>("Jwt:Key"));
-            
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]

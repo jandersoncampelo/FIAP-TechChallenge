@@ -3,6 +3,7 @@ using InvestmentPortal.API.Application.Services;
 using InvestmentPortal.API.Persistence;
 using InvestmentPortal.API.Persistence.Interfaces;
 using InvestmentPortal.API.Persistence.Repositories;
+using InvestmentPortal.EventBus;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -23,8 +24,10 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IAssetAppService, AssetAppService>();
 builder.Services.AddTransient<IAuthenticationAppService, AuthenticationAppService>();
 
+builder.Services.AddScoped<ICustomSender, ServiceBusTopicSender>();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x =>
 {
@@ -56,7 +59,6 @@ builder.Services.AddSwaggerGen(x =>
         }
     });
 });
-
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
