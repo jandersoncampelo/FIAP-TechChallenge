@@ -1,9 +1,8 @@
 ﻿using InvestmentPortal.Domain.Entities;
 
-namespace InvestmentPortal.API.Persistence.Interfaces
+namespace InvestmentPortal.API.Persistence.Interfaces;
+
+public interface IUserRepository : IRepository<User>
 {
-    public interface IUserRepository : IRepository<User>
-    {
-        Task<User> GetUserByLogin(string userName, string password);
-    }
+    Task<User> GetUserByLogin(string userName, string password);
 }

@@ -1,3 +1,4 @@
+using InvestmentPortal.API;
 using InvestmentPortal.API.Application.Interfaces;
 using InvestmentPortal.API.Application.Services;
 using InvestmentPortal.API.Persistence;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<MainContext>(options =>
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IAssetRepository, AssetRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IInvestmentOrderRepository, InvestmentOrderRepository>();
 
 builder.Services.AddTransient<IAssetAppService, AssetAppService>();
 builder.Services.AddTransient<IAuthenticationAppService, AuthenticationAppService>();

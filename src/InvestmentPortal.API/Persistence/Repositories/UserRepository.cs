@@ -13,7 +13,7 @@ namespace InvestmentPortal.API.Persistence.Repositories
             var passwordHash = password.ToSHA256();
             var result = await _context.Set<User>().FirstOrDefaultAsync(u => u.UserName == userName && u.PasswordHash == passwordHash);
 
-            return result;
+            return result ?? throw new Exception("User not found");
         }
     }
 }

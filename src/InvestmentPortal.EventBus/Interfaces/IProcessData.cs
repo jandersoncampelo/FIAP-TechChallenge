@@ -2,6 +2,6 @@
 {
     public interface IProcessData
     {
-        Task Process(CustomMessage message);
+        Task Process(InvestmentOrderMessage message);
     }
 }
