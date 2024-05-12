@@ -5,15 +5,17 @@ namespace InvestmentPortal.Order.API;
 
 public class WorkerServiceBus : IHostedService, IDisposable
 {
+    private readonly IServiceProvider _serviceProvider;
     private readonly ILogger<WorkerServiceBus> _logger;
     private readonly IServiceBusConsumer _serviceBusConsumer;
     private readonly IServiceBusTopicSubscription _serviceBusTopicSubscription;
 
-    public WorkerServiceBus(ILogger<WorkerServiceBus> logger, IServiceBusConsumer serviceBusConsumer, IServiceBusTopicSubscription serviceBusTopicSubscription)
+    public WorkerServiceBus(ILogger<WorkerServiceBus> logger, IServiceBusConsumer serviceBusConsumer, IServiceBusTopicSubscription serviceBusTopicSubscription, IServiceProvider serviceProvider)
     {
         _logger = logger;
         _serviceBusConsumer = serviceBusConsumer;
         _serviceBusTopicSubscription = serviceBusTopicSubscription;
+        _serviceProvider = serviceProvider;
     }
 
     public async Task StartAsync(CancellationToken cancellationToken)

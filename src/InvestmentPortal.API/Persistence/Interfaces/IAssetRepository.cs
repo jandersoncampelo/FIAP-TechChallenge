@@ -1,5 +1,4 @@
-﻿using InvestmentPortal.API.Persistence.Repositories;
-using InvestmentPortal.Domain.Entities;
+﻿using InvestmentPortal.Domain.Entities;
 
 namespace InvestmentPortal.API.Persistence.Interfaces
 {

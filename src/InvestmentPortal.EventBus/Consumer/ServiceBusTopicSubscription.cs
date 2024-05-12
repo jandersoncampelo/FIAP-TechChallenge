@@ -10,21 +10,19 @@ public class ServiceBusTopicSubscription : IServiceBusTopicSubscription
 {
     private readonly ILogger _logger;
     private readonly IProcessData _processData;
-    private readonly IConfiguration _configuration;
     private readonly ServiceBusClient _client;
     private readonly ServiceBusAdministrationClient _adminClient;
     private ServiceBusProcessor? _processor = null;
 
-    private const string TOPIC_PATH = "mytopic";
-    private const string SUBSCRIPTION_NAME = "mytopicsubscription";
+    private const string TOPIC_PATH = "investment-order-topic";
+    private const string SUBSCRIPTION_NAME = "investment-order-subscription";
 
     public ServiceBusTopicSubscription(IProcessData processData, IConfiguration configuration, ILogger<ServiceBusTopicSubscription> logger)
     {
         _processData = processData;
-        _configuration = configuration;
         _logger = logger;
 
-        var connectionString = _configuration.GetConnectionString("ServiceBusConnectionString");
+        var connectionString = configuration["ConnectionStrings:AzureServiceBus"];
         _client = new ServiceBusClient(connectionString);
         _adminClient = new ServiceBusAdministrationClient(connectionString);
     }
@@ -105,7 +103,7 @@ public class ServiceBusTopicSubscription : IServiceBusTopicSubscription
 
     private async Task ProcessMessagesAsync(ProcessMessageEventArgs args)
     {
-        var myPayload = args.Message.Body.ToObjectFromJson<CustomMessage>();
+        var myPayload = args.Message.Body.ToObjectFromJson<InvestmentOrderMessage>();
         await _processData.Process(myPayload).ConfigureAwait(false);
         await args.CompleteMessageAsync(args.Message).ConfigureAwait(false);
     }
