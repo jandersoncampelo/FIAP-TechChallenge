@@ -24,9 +24,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InvestmentPortal.Domain\InvestmentPortal.Domain.csproj" />
+    <ProjectReference Include="..\InvestmentPortal.EventBus\InvestmentPortal.EventBus.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\DTOs\" />
     <Folder Include="Persistence\Migrations\" />
   </ItemGroup>
 

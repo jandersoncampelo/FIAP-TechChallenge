@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.API", "src\InvestmentPortal.API\InvestmentPortal.API.csproj", "{E4A9C3D3-6799-443B-994F-A3A3AFC24804}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Domain", "src\InvestmentPortal.Domain\InvestmentPortal.Domain.csproj", "{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.EventBus", "src\InvestmentPortal.EventBus\InvestmentPortal.EventBus.csproj", "{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Tests", "tests\InvestmentPortal.Tests\InvestmentPortal.Tests.csproj", "{610EBCB5-370C-4302-B617-653F373A1C14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.API", "src\InvestmentPortal.API\InvestmentPortal.API.csproj", "{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Order.API", "src\InvestmentPortal.Order.API\InvestmentPortal.Order.API.csproj", "{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Domain", "src\InvestmentPortal.Domain\InvestmentPortal.Domain.csproj", "{711FA3CA-8C90-479E-B35D-68C57C04466D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{12A8AD1D-B15C-4847-B522-9FE9589D9F2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Tests", "tests\InvestmentPortal.Tests\InvestmentPortal.Tests.csproj", "{54DA579C-3974-4F4E-BB39-C41D193DCB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestMentPortal.Application.Tests", "tests\InvestMentPortal.Application.Tests\InvestMentPortal.Application.Tests.csproj", "{3B216CF2-0252-486B-8679-04FE889E7A05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,21 +25,41 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4A9C3D3-6799-443B-994F-A3A3AFC24804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4A9C3D3-6799-443B-994F-A3A3AFC24804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4A9C3D3-6799-443B-994F-A3A3AFC24804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4A9C3D3-6799-443B-994F-A3A3AFC24804}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDC9842B-CC94-4C62-B289-AE36F3A0A8B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{610EBCB5-370C-4302-B617-653F373A1C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{610EBCB5-370C-4302-B617-653F373A1C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{610EBCB5-370C-4302-B617-653F373A1C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{610EBCB5-370C-4302-B617-653F373A1C14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711FA3CA-8C90-479E-B35D-68C57C04466D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711FA3CA-8C90-479E-B35D-68C57C04466D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711FA3CA-8C90-479E-B35D-68C57C04466D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711FA3CA-8C90-479E-B35D-68C57C04466D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54DA579C-3974-4F4E-BB39-C41D193DCB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54DA579C-3974-4F4E-BB39-C41D193DCB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54DA579C-3974-4F4E-BB39-C41D193DCB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54DA579C-3974-4F4E-BB39-C41D193DCB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B216CF2-0252-486B-8679-04FE889E7A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B216CF2-0252-486B-8679-04FE889E7A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B216CF2-0252-486B-8679-04FE889E7A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B216CF2-0252-486B-8679-04FE889E7A05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
+		{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
+		{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
+		{711FA3CA-8C90-479E-B35D-68C57C04466D} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
+		{54DA579C-3974-4F4E-BB39-C41D193DCB42} = {12A8AD1D-B15C-4847-B522-9FE9589D9F2B}
+		{3B216CF2-0252-486B-8679-04FE889E7A05} = {12A8AD1D-B15C-4847-B522-9FE9589D9F2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07B728C3-B3B3-4235-ADB5-ED068ADD5C7D}
