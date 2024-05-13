@@ -1,7 +1,6 @@
-using InvestmentPortal.API;
-using InvestmentPortal.API.Persistence;
-using InvestmentPortal.API.Persistence.Interfaces;
-using InvestmentPortal.API.Persistence.Repositories;
+using InvestmentPortal.Core.Domain.Data;
+using InvestmentPortal.Core.Domain.Interfaces;
+using InvestmentPortal.Core.SqlServer.Repositories;
 using InvestmentPortal.EventBus;
 using InvestmentPortal.Order.API;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +16,7 @@ builder.Services.AddTransient<IAssetRepository, AssetRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IInvestmentOrderRepository, InvestmentOrderRepository>();
 
-builder.Services.AddSingleton<IServiceBusConsumer, ServiceBusConsumer>();
+//builder.Services.AddSingleton<IServiceBusConsumer, ServiceBusConsumer>();
 builder.Services.AddSingleton<IServiceBusTopicSubscription, ServiceBusTopicSubscription>();
 builder.Services.AddSingleton<IProcessData, ProcessOrder>();
 

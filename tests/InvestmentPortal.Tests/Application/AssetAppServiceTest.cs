@@ -1,5 +1,5 @@
+using InvestmentPortal.API.Application.Assets.Interfaces;
 using InvestmentPortal.API.Application.DTOs;
-using InvestmentPortal.API.Application.Interfaces;
 using InvestmentPortal.API.Application.Services;
 using InvestmentPortal.API.Persistence.Interfaces;
 using InvestmentPortal.Domain.Entities;

@@ -1,5 +1,4 @@
-﻿using InvestmentPortal.API.Persistence.Interfaces;
-using InvestmentPortal.API.Persistence.Repositories;
+﻿using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using InvestmentPortal.Domain.Enums;
 using InvestmentPortal.EventBus;
@@ -24,7 +23,7 @@ public class ProcessOrder : IProcessData
 
         var user = await ValidateUser(message);
         var asset = await ValidateAsset(message);
-        
+
         if (!await CanInsertOrder(message, user, asset))
         {
 

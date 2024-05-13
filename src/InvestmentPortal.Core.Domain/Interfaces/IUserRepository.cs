@@ -1,6 +1,6 @@
 ﻿using InvestmentPortal.Domain.Entities;
 
-namespace InvestmentPortal.API.Persistence.Interfaces;
+namespace InvestmentPortal.Core.Domain.Interfaces;
 
 public interface IUserRepository : IRepository<User>
 {

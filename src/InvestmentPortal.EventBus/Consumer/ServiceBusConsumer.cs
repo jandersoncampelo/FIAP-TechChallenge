@@ -21,7 +21,7 @@ public class ServiceBusConsumer : IServiceBusConsumer
         var connectionString = configuration["ConnectionStrings:AzureServiceBus"];
         _client = new ServiceBusClient(connectionString);
     }
-    
+
     public async Task RegisterOnMessageHandlerAndReceiveMessages()
     {
         var _serviceBusProcessorOptions = new ServiceBusProcessorOptions

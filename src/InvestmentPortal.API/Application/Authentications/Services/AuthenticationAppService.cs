@@ -1,6 +1,6 @@
 ﻿using InvestmentPortal.API.Application.DTOs;
 using InvestmentPortal.API.Application.Interfaces;
-using InvestmentPortal.API.Persistence.Interfaces;
+using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

@@ -1,5 +1,5 @@
-﻿using InvestmentPortal.API.Persistence.Interfaces;
-using InvestmentPortal.Application.InvestmentOrders;
+﻿using InvestmentPortal.Application.InvestmentOrders;
+using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using InvestmentPortal.EventBus;
 using Microsoft.AspNetCore.Mvc;

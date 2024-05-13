@@ -2,5 +2,5 @@
 
 public interface ICustomSender
 {
-    Task SendMessageAsync(CustomMessage customMessage);
+    Task SendMessageAsync(InvestmentOrderMessage customMessage);
 }

@@ -1,4 +1,4 @@
-﻿using InvestmentPortal.API.Persistence.Interfaces;
+﻿using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 

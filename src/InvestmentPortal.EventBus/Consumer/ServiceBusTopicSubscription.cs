@@ -39,8 +39,8 @@ public class ServiceBusTopicSubscription : IServiceBusTopicSubscription
         _processor.ProcessMessageAsync += ProcessMessagesAsync;
         _processor.ProcessErrorAsync += ProcessErrorAsync;
 
-        await RemoveDefaultFilters().ConfigureAwait(false);
-        await AddFilters().ConfigureAwait(false);
+        //await RemoveDefaultFilters().ConfigureAwait(false);
+        //await AddFilters().ConfigureAwait(false);
 
         await _processor.StartProcessingAsync();
     }
@@ -67,7 +67,7 @@ public class ServiceBusTopicSubscription : IServiceBusTopicSubscription
         }
         catch (Exception ex)
         {
-            _logger.LogError("{ex}", ex.ToString());
+            _logger.LogWarning(ex, "{Ex}", ex.ToString());
         }
     }
 
@@ -84,7 +84,7 @@ public class ServiceBusTopicSubscription : IServiceBusTopicSubscription
                 ruleProperties.Add(rule);
             }
 
-            if (!ruleProperties.Any(r => r.Name == "GoalsGreaterThanSeven"))
+            if (!ruleProperties.Exists(r => r.Name == "GoalsGreaterThanSeven"))
             {
                 var createRuleOptions = new CreateRuleOptions
                 {
@@ -97,7 +97,7 @@ public class ServiceBusTopicSubscription : IServiceBusTopicSubscription
         }
         catch (Exception ex)
         {
-            _logger.LogWarning("{ex}", ex.ToString());
+            _logger.LogWarning(ex, "{Ex}", ex.ToString());
         }
     }
 

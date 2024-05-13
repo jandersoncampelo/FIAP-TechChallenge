@@ -1,9 +1,9 @@
-using InvestmentPortal.API;
+using InvestmentPortal.API.Application.Assets.Interfaces;
 using InvestmentPortal.API.Application.Interfaces;
 using InvestmentPortal.API.Application.Services;
-using InvestmentPortal.API.Persistence;
-using InvestmentPortal.API.Persistence.Interfaces;
-using InvestmentPortal.API.Persistence.Repositories;
+using InvestmentPortal.Core.Domain.Data;
+using InvestmentPortal.Core.Domain.Interfaces;
+using InvestmentPortal.Core.SqlServer.Repositories;
 using InvestmentPortal.EventBus;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

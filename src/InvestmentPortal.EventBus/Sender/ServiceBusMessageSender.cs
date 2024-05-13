@@ -17,7 +17,7 @@ public class ServiceBusMessageSender : ICustomSender
         _sender = _client.CreateSender(QUEUE_NAME);
     }
 
-    public async Task SendMessageAsync(CustomMessage customMessage)
+    public async Task SendMessageAsync(InvestmentOrderMessage customMessage)
     {
         ServiceBusMessage message = new(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(customMessage)));
         await _sender.SendMessageAsync(message);

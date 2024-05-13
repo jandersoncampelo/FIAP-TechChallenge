@@ -1,6 +1,6 @@
 ﻿using InvestmentPortal.Domain.Core;
 
-namespace InvestmentPortal.API.Persistence.Interfaces;
+namespace InvestmentPortal.Core.Domain.Interfaces;
 
 public interface IRepository<T> where T : Entity
 {
