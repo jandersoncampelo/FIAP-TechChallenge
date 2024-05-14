@@ -5,21 +5,21 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.EventBus", "src\InvestmentPortal.EventBus\InvestmentPortal.EventBus.csproj", "{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.EventBus", "src\InvestmentPortal.EventBus\InvestmentPortal.EventBus.csproj", "{24A4B0FE-B06E-474A-B75C-E7F86FF81F9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.API", "src\InvestmentPortal.API\InvestmentPortal.API.csproj", "{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.API", "src\InvestmentPortal.API\InvestmentPortal.API.csproj", "{7878D2C3-BB40-4B5B-9C7C-1B7A0F127E40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Order.API", "src\InvestmentPortal.Order.API\InvestmentPortal.Order.API.csproj", "{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Order.API", "src\InvestmentPortal.Order.API\InvestmentPortal.Order.API.csproj", "{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{12A8AD1D-B15C-4847-B522-9FE9589D9F2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Tests", "tests\InvestmentPortal.Tests\InvestmentPortal.Tests.csproj", "{54DA579C-3974-4F4E-BB39-C41D193DCB42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Tests", "tests\InvestmentPortal.Tests\InvestmentPortal.Tests.csproj", "{54DA579C-3974-4F4E-BB39-C41D193DCB42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestMentPortal.Application.Tests", "tests\InvestMentPortal.Application.Tests\InvestMentPortal.Application.Tests.csproj", "{3B216CF2-0252-486B-8679-04FE889E7A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestMentPortal.Application.Tests", "tests\InvestMentPortal.Application.Tests\InvestMentPortal.Application.Tests.csproj", "{3B216CF2-0252-486B-8679-04FE889E7A05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Core.SqlServer", "src\InvestmentPortal.SqlServer\InvestmentPortal.Core.SqlServer.csproj", "{5BE0C5B8-16A2-40D1-B681-26CE863718A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Core.Domain", "src\InvestmentPortal.Core.Domain\InvestmentPortal.Core.Domain.csproj", "{BA4228AE-5A2E-4670-AA64-74AE76721FED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Core.Domain", "src\InvestmentPortal.Core.Domain\InvestmentPortal.Core.Domain.csproj", "{BA4228AE-5A2E-4670-AA64-74AE76721FED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Core.Data", "src\InvestmentPortal.Core.Data\InvestmentPortal.Core.Data.csproj", "{0C582256-BF69-4119-9A74-5512C60DF34A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +47,14 @@ Global
 		{3B216CF2-0252-486B-8679-04FE889E7A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B216CF2-0252-486B-8679-04FE889E7A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B216CF2-0252-486B-8679-04FE889E7A05}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BE0C5B8-16A2-40D1-B681-26CE863718A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BE0C5B8-16A2-40D1-B681-26CE863718A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BE0C5B8-16A2-40D1-B681-26CE863718A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BE0C5B8-16A2-40D1-B681-26CE863718A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA4228AE-5A2E-4670-AA64-74AE76721FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA4228AE-5A2E-4670-AA64-74AE76721FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA4228AE-5A2E-4670-AA64-74AE76721FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA4228AE-5A2E-4670-AA64-74AE76721FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C582256-BF69-4119-9A74-5512C60DF34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C582256-BF69-4119-9A74-5512C60DF34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C582256-BF69-4119-9A74-5512C60DF34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C582256-BF69-4119-9A74-5512C60DF34A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,8 +65,8 @@ Global
 		{6A71ACD4-5575-4B70-9D11-4CC2EB7A9E57} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
 		{54DA579C-3974-4F4E-BB39-C41D193DCB42} = {12A8AD1D-B15C-4847-B522-9FE9589D9F2B}
 		{3B216CF2-0252-486B-8679-04FE889E7A05} = {12A8AD1D-B15C-4847-B522-9FE9589D9F2B}
-		{5BE0C5B8-16A2-40D1-B681-26CE863718A5} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
 		{BA4228AE-5A2E-4670-AA64-74AE76721FED} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
+		{0C582256-BF69-4119-9A74-5512C60DF34A} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07B728C3-B3B3-4235-ADB5-ED068ADD5C7D}

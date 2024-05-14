@@ -4,9 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
     <UserSecretsId>217c6216-a479-429a-ba05-c9c5bd1591eb</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Persistence\**" />
+    <Content Remove="Persistence\**" />
+    <EmbeddedResource Remove="Persistence\**" />
+    <None Remove="Persistence\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
@@ -20,16 +26,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InvestmentPortal.Core.Data\InvestmentPortal.Core.Data.csproj" />
     <ProjectReference Include="..\InvestmentPortal.EventBus\InvestmentPortal.EventBus.csproj" />
     <ProjectReference Include="..\InvestmentPortal.Core.Domain\InvestmentPortal.Core.Domain.csproj" />
-    <ProjectReference Include="..\InvestmentPortal.SqlServer\InvestmentPortal.Core.SqlServer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Application\Assets\Interfaces\" />
     <Folder Include="Application\Assets\Services\" />
     <Folder Include="Application\DTOs\" />
-    <Folder Include="Persistence\Migrations\" />
   </ItemGroup>
 
 </Project>

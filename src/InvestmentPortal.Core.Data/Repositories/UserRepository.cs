@@ -1,12 +1,12 @@
-﻿using InvestmentPortal.Core.Domain.Data;
+﻿using InvestmentPortal.Core.Data.EntityFrameworkCore;
 using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using InvestmentPortal.Domain.Extensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvestmentPortal.Core.SqlServer.Repositories;
+namespace InvestmentPortal.Core.Data.Repositories;
 
-public class UserRepository(MainContext context) : Repository<User>(context), IUserRepository
+public class UserRepository(FiapDbContext context) : Repository<User>(context), IUserRepository
 {
     public async Task<User> GetUserByLogin(string userName, string password)
     {

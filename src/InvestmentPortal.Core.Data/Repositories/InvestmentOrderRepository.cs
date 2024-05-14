@@ -1,11 +1,11 @@
-﻿using InvestmentPortal.Core.Domain.Data;
+﻿using InvestmentPortal.Core.Data.EntityFrameworkCore;
 using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvestmentPortal.Core.SqlServer.Repositories;
+namespace InvestmentPortal.Core.Data.Repositories;
 
-public class InvestmentOrderRepository(MainContext context) : Repository<InvestmentOrder>(context), IInvestmentOrderRepository
+public class InvestmentOrderRepository(FiapDbContext context) : Repository<InvestmentOrder>(context), IInvestmentOrderRepository
 {
     public async Task<bool> VerifyOpenOrderAsync(int userId, int assetId, DateTime orderDate)
     {

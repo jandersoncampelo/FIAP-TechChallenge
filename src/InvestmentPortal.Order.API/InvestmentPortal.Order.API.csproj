@@ -4,7 +4,6 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InvestmentPortal.Core.Data\InvestmentPortal.Core.Data.csproj" />
     <ProjectReference Include="..\InvestmentPortal.EventBus\InvestmentPortal.EventBus.csproj" />
     <ProjectReference Include="..\InvestmentPortal.Core.Domain\InvestmentPortal.Core.Domain.csproj" />
-    <ProjectReference Include="..\InvestmentPortal.SqlServer\InvestmentPortal.Core.SqlServer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

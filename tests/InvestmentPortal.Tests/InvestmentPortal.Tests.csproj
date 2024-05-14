@@ -29,7 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\InvestmentPortal.API\InvestmentPortal.API.csproj" />
-    <ProjectReference Include="..\..\src\InvestmentPortal.Domain\InvestmentPortal.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\src\InvestmentPortal.Core.Domain\InvestmentPortal.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>

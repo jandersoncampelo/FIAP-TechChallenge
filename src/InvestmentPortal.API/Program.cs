@@ -1,9 +1,9 @@
 using InvestmentPortal.API.Application.Assets.Interfaces;
 using InvestmentPortal.API.Application.Interfaces;
 using InvestmentPortal.API.Application.Services;
-using InvestmentPortal.Core.Domain.Data;
+using InvestmentPortal.Core.Data.EntityFrameworkCore;
+using InvestmentPortal.Core.Data.Repositories;
 using InvestmentPortal.Core.Domain.Interfaces;
-using InvestmentPortal.Core.SqlServer.Repositories;
 using InvestmentPortal.EventBus;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -14,8 +14,8 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<MainContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+builder.Services.AddDbContext<FiapDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 //injetar dependencias de repositorios
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

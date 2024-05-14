@@ -1,6 +1,6 @@
-using InvestmentPortal.Core.Domain.Data;
+using InvestmentPortal.Core.Data.EntityFrameworkCore;
+using InvestmentPortal.Core.Data.Repositories;
 using InvestmentPortal.Core.Domain.Interfaces;
-using InvestmentPortal.Core.SqlServer.Repositories;
 using InvestmentPortal.EventBus;
 using InvestmentPortal.Order.API;
 using Microsoft.EntityFrameworkCore;
@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<MainContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+builder.Services.AddDbContext<FiapDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddTransient<IAssetRepository, AssetRepository>();

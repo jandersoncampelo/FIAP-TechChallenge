@@ -1,7 +1,7 @@
 using InvestmentPortal.API.Application.Assets.Interfaces;
 using InvestmentPortal.API.Application.DTOs;
 using InvestmentPortal.API.Application.Services;
-using InvestmentPortal.API.Persistence.Interfaces;
+using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using InvestmentPortal.Domain.Enums;
 using Moq;
