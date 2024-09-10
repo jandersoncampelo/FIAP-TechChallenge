@@ -1,10 +1,10 @@
-﻿using InvestmentPortal.Core.Data.EntityFrameworkCore;
-using InvestmentPortal.Core.Domain.Interfaces;
+﻿using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
 using InvestmentPortal.Domain.Extensions;
+using InvestmentPortal.Infra.SqlServer.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvestmentPortal.Core.Data.Repositories;
+namespace InvestmentPortal.Infra.SqlServer.Repositories;
 
 public class UserRepository(FiapDbContext context) : Repository<User>(context), IUserRepository
 {

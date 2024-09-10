@@ -4,7 +4,13 @@ namespace InvestmentPortal.API.Application.DTOs
 {
     public class UserLoginDto
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public required string UserName { get; set; }
+        public required string Password { get; set; }
+
+        public UserLoginDto(string userName, string password)
+        {
+            UserName = userName;
+            Password = password;
+        }
     }
 }

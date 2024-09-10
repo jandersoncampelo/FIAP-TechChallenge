@@ -1,9 +1,9 @@
-﻿using InvestmentPortal.Core.Data.EntityFrameworkCore;
-using InvestmentPortal.Core.Domain.Interfaces;
+﻿using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Entities;
+using InvestmentPortal.Infra.SqlServer.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvestmentPortal.Core.Data.Repositories;
+namespace InvestmentPortal.Infra.SqlServer.Repositories;
 
 public class InvestmentOrderRepository(FiapDbContext context) : Repository<InvestmentOrder>(context), IInvestmentOrderRepository
 {

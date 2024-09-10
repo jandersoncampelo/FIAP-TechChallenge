@@ -1,10 +1,10 @@
 using InvestmentPortal.API.Application.Assets.Interfaces;
 using InvestmentPortal.API.Application.Interfaces;
 using InvestmentPortal.API.Application.Services;
-using InvestmentPortal.Core.Data.EntityFrameworkCore;
-using InvestmentPortal.Core.Data.Repositories;
 using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.EventBus;
+using InvestmentPortal.Infra.SqlServer.DependencyInjection;
+using InvestmentPortal.Infra.SqlServer.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,10 +12,10 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
-builder.Services.AddDbContext<FiapDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddFiapDbContext(configuration.GetConnectionString("Default"));
 
 //injetar dependencias de repositorios
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -61,10 +61,6 @@ builder.Services.AddSwaggerGen(x =>
         }
     });
 });
-
-var configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .Build();
 
 var key = Encoding.ASCII.GetBytes(configuration["Jwt:Key"]);
 

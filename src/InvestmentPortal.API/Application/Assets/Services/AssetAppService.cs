@@ -24,7 +24,10 @@ namespace InvestmentPortal.API.Application.Services
             if (await _repository.GetBySymbolAsync(createDTO.Symbol) is not null)
                 throw new Exception("Asset already exists");
 
-            var result = await _repository.AddAsync(new Asset(createDTO.Symbol, createDTO.Type, createDTO.Name, createDTO.Description));
+            var result = await _repository.AddAsync(new Asset(createDTO.Symbol,
+                                                              createDTO.Type,
+                                                              createDTO.Name,
+                                                              createDTO.Description));
 
             return AssetDto.FromAsset(result);
         }

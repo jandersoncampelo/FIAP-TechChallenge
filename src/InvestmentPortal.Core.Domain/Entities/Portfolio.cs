@@ -4,10 +4,10 @@ namespace InvestmentPortal.Domain.Entities
 {
     public class Portfolio : Entity
     {
-        public int UserId { get; set; }
-        public int AssetId { get; set; }
-        public decimal Quantity { get; set; }
-        public DateTime PurchaseDate { get; set; }
+        public required int UserId { get; set; }
+        public required int AssetId { get; set; }
+        public required decimal Quantity { get; set; }
+        public required DateTime PurchaseDate { get; set; }
 
         public User? User { get; set; }
         public Asset? Asset { get; set; }
