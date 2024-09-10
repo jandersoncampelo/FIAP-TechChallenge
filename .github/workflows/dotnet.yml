@@ -42,16 +42,8 @@ jobs:
         dotnet-version: '8.0.x' # Altere para a versão do .NET que você está usando
 
     - name: Run tests
-      run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx" --results-directory ./test-results
-
-    - name: Use Test Report
-      uses: dorny/test-reporter@v1.9.1
-      if: always() # Garante que o relatório seja gerado mesmo se os testes falharem
-      with:
-        name: Test Results
-        path: test-results/*.trx
-        reporter: dotnet-trx
-        fail-on-error: false
+      run: dotnet test --configuration Release --logger "trx;LogFileName=test-results.trx" --results-directory ./test-results
+      
     - name: XUnit Viewer
       uses: AutoModality/action-xunit-viewer@v1.0.1
           
