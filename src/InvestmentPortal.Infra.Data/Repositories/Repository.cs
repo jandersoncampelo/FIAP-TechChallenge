@@ -1,8 +1,8 @@
-﻿using InvestmentPortal.Core.Data.EntityFrameworkCore;
-using InvestmentPortal.Core.Domain.Interfaces;
+﻿using InvestmentPortal.Core.Domain.Interfaces;
 using InvestmentPortal.Domain.Core;
+using InvestmentPortal.Infra.SqlServer.Data;
 
-namespace InvestmentPortal.Core.Data.Repositories;
+namespace InvestmentPortal.Infra.SqlServer.Repositories;
 
 public class Repository<T>(FiapDbContext context) : IRepository<T> where T : Entity
 {

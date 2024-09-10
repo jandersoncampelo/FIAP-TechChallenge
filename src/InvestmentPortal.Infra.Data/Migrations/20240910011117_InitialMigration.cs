@@ -3,50 +3,50 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace InvestmentPortal.Core.Data.Migrations
+namespace InvestmentPortal.Infra.SqlServer.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrations : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Assets",
+                name: "AppAssets",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Symbol = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Symbol = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Assets", x => x.Id);
+                    table.PrimaryKey("PK_AppAssets", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "AppUsers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_AppUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "InvestmentOrders",
+                name: "AppInvestmentOrders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -57,27 +57,35 @@ namespace InvestmentPortal.Core.Data.Migrations
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    UserId1 = table.Column<int>(type: "int", nullable: true),
+                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InvestmentOrders", x => x.Id);
+                    table.PrimaryKey("PK_AppInvestmentOrders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InvestmentOrders_Assets_AssetId",
+                        name: "FK_AppInvestmentOrders_AppAssets_AssetId",
                         column: x => x.AssetId,
-                        principalTable: "Assets",
+                        principalTable: "AppAssets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InvestmentOrders_Users_UserId",
+                        name: "FK_AppInvestmentOrders_AppUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AppInvestmentOrders_AppUsers_UserId1",
+                        column: x => x.UserId1,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Portfolios",
+                name: "AppPortfolios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -85,60 +93,76 @@ namespace InvestmentPortal.Core.Data.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false),
                     AssetId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Portfolios", x => x.Id);
+                    table.PrimaryKey("PK_AppPortfolios", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Portfolios_Assets_AssetId",
+                        name: "FK_AppPortfolios_AppAssets_AssetId",
                         column: x => x.AssetId,
-                        principalTable: "Assets",
+                        principalTable: "AppAssets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Portfolios_Users_UserId",
+                        name: "FK_AppPortfolios_AppUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AppPortfolios_AppUsers_UserId1",
+                        column: x => x.UserId1,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_InvestmentOrders_AssetId",
-                table: "InvestmentOrders",
+                name: "IX_AppInvestmentOrders_AssetId",
+                table: "AppInvestmentOrders",
                 column: "AssetId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InvestmentOrders_UserId",
-                table: "InvestmentOrders",
+                name: "IX_AppInvestmentOrders_UserId",
+                table: "AppInvestmentOrders",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Portfolios_AssetId",
-                table: "Portfolios",
+                name: "IX_AppInvestmentOrders_UserId1",
+                table: "AppInvestmentOrders",
+                column: "UserId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppPortfolios_AssetId",
+                table: "AppPortfolios",
                 column: "AssetId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Portfolios_UserId",
-                table: "Portfolios",
+                name: "IX_AppPortfolios_UserId",
+                table: "AppPortfolios",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppPortfolios_UserId1",
+                table: "AppPortfolios",
+                column: "UserId1");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "InvestmentOrders");
+                name: "AppInvestmentOrders");
 
             migrationBuilder.DropTable(
-                name: "Portfolios");
+                name: "AppPortfolios");
 
             migrationBuilder.DropTable(
-                name: "Assets");
+                name: "AppAssets");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "AppUsers");
         }
     }
 }
