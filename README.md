@@ -1,3 +1,4 @@
+[![.NET](https://github.com/jandersoncampelo/FIAP-TechChallenge/actions/workflows/dotnet.yml/badge.svg)](https://github.com/jandersoncampelo/FIAP-TechChallenge/actions/workflows/dotnet.yml)
 # FIAP-TechChallenge01
 ## API de Portal de Investimentos
 

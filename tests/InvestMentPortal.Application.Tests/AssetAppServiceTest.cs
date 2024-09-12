@@ -1,11 +1,119 @@
-namespace InvestMentPortal.Application.Tests
-{
-    public class AssetAppServiceTest
-    {
-        [Fact]
-        public void Test1()
-        {
+using InvestmentPortal.API.Application.Assets.Interfaces;
+using InvestmentPortal.API.Application.DTOs;
+using InvestmentPortal.API.Application.Services;
+using InvestmentPortal.Core.Domain.Interfaces;
+using InvestmentPortal.Domain.Entities;
+using InvestmentPortal.Domain.Enums;
+using Moq;
 
+namespace InvestmentPortal.Tests.Application
+{
+    public class AssetAppServiceTests
+    {
+        private readonly Mock<IAssetRepository> _repositoryMock;
+        private readonly IAssetAppService _assetAppService;
+
+        public AssetAppServiceTests()
+        {
+            _repositoryMock = new Mock<IAssetRepository>();
+            _assetAppService = new AssetAppService(_repositoryMock.Object);
+        }
+
+        [Fact]
+        public async Task CreateAsync_WithValidData_ReturnsAssetDto()
+        {
+            // Arrange
+            var createDTO = new AssetCreateDto
+            (
+                "AAPL",
+                AssetType.Stock,
+                "Apple Inc.",
+                "Technology company"
+            );
+
+            var asset = new Asset(createDTO.Symbol, createDTO.Type, createDTO.Name, createDTO.Description);
+            var assetDto = AssetDto.FromAsset(asset);
+
+            _repositoryMock.Setup(r => r.GetBySymbolAsync(createDTO.Symbol)).ReturnsAsync((Asset)null);
+            _repositoryMock.Setup(r => r.AddAsync(It.IsAny<Asset>())).ReturnsAsync(asset);
+
+            // Act
+            var result = await _assetAppService.CreateAsync(createDTO);
+
+            // Assert
+            Assert.Equal(assetDto, result);
+            _repositoryMock.Verify(r => r.GetBySymbolAsync(createDTO.Symbol), Times.Once);
+            _repositoryMock.Verify(r => r.AddAsync(It.IsAny<Asset>()), Times.Once);
+        }
+
+        [Fact]
+        public async Task CreateAsync_WithNullCreateDTO_ThrowsArgumentNullException()
+        {
+            // Arrange
+            AssetCreateDto createDTO = null;
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _assetAppService.CreateAsync(createDTO));
+        }
+
+        [Fact]
+        public async Task CreateAsync_WithEmptySymbol_ThrowsArgumentNullException()
+        {
+            // Arrange
+            var createDTO = new AssetCreateDto
+            (
+                null,
+                AssetType.Stock,
+                "Apple Inc.",
+                "Technology company"
+            );
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _assetAppService.CreateAsync(createDTO));
+        }
+
+        [Fact]
+        public async Task CreateAsync_WithExistingSymbol_ThrowsException()
+        {
+            // Arrange
+            var createDTO = new AssetCreateDto
+            (
+                "AAPL",
+                AssetType.Stock,
+                "Apple Inc.",
+                "Technology company"
+            );
+
+            _repositoryMock.Setup(r => r.GetBySymbolAsync(createDTO.Symbol)).ReturnsAsync(new Asset());
+
+            // Act & Assert
+            await Assert.ThrowsAsync<Exception>(() => _assetAppService.CreateAsync(createDTO));
+        }
+
+        [Fact]
+        public async Task RemoveAsync_ExistingAsset_RemovesAsset()
+        {
+            // Arrange
+            int assetId = 1;
+            var assetToDelete = new Asset("AAPL", AssetType.Stock, "Apple Inc.", "Technology company");
+            _repositoryMock.Setup(r => r.GetByIdAsync<Asset>(assetId)).ReturnsAsync(assetToDelete);
+
+            // Act
+            await _assetAppService.RemoveAsync(assetId);
+
+            // Assert
+            _repositoryMock.Verify(r => r.RemoveAsync(assetToDelete), Times.Once);
+        }
+
+        [Fact]
+        public async Task RemoveAsync_NonExistingAsset_ThrowsException()
+        {
+            // Arrange
+            int assetId = 1;
+            _repositoryMock.Setup(r => r.GetByIdAsync<Asset>(assetId)).ReturnsAsync((Asset)null);
+
+            // Act and Assert
+            await Assert.ThrowsAsync<Exception>(() => _assetAppService.RemoveAsync(assetId));
         }
     }
 }
