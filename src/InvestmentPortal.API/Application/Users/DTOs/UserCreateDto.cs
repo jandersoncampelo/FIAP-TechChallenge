@@ -1,6 +1,4 @@
 ﻿namespace InvestmentPortal.API.Application.DTOs
 {
-    public class UserCreateDto
-    {
-    }
+    public record UserCreateDto(string UserName, string Password, string Email, string FirstName, string LastName);
 }

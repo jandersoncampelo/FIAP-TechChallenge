@@ -16,4 +16,13 @@ public class UserRepository(FiapDbContext context) : Repository<User>(context), 
 
         return result ?? throw new Exception("User not found");
     }
+
+    public async Task<User> CreateUser(User user)
+    {
+        var result = await _context.Set<User>().AddAsync(user);
+        await _context.SaveChangesAsync();
+
+        return result.Entity;
+    }
+
 }

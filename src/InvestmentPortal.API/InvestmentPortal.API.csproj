@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Application\DTOs\**" />
     <Compile Remove="Persistence\**" />
+    <Content Remove="Application\DTOs\**" />
     <Content Remove="Persistence\**" />
+    <EmbeddedResource Remove="Application\DTOs\**" />
     <EmbeddedResource Remove="Persistence\**" />
+    <None Remove="Application\DTOs\**" />
     <None Remove="Persistence\**" />
   </ItemGroup>
 
@@ -23,6 +27,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+    <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +39,6 @@
   <ItemGroup>
     <Folder Include="Application\Assets\Interfaces\" />
     <Folder Include="Application\Assets\Services\" />
-    <Folder Include="Application\DTOs\" />
   </ItemGroup>
 
 </Project>

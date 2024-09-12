@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Core.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentPortal.Infra.SqlServer", "src\InvestmentPortal.Infra.Data\InvestmentPortal.Infra.SqlServer.csproj", "{0B662E10-E012-49FE-9D0D-E297D90C1CA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentPortal.Application", "src\InvestmentPortal.Application\InvestmentPortal.Application.csproj", "{4536558D-3287-418B-B2FF-8B11E7A7D947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{0B662E10-E012-49FE-9D0D-E297D90C1CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B662E10-E012-49FE-9D0D-E297D90C1CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B662E10-E012-49FE-9D0D-E297D90C1CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4536558D-3287-418B-B2FF-8B11E7A7D947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4536558D-3287-418B-B2FF-8B11E7A7D947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4536558D-3287-418B-B2FF-8B11E7A7D947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4536558D-3287-418B-B2FF-8B11E7A7D947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{3B216CF2-0252-486B-8679-04FE889E7A05} = {12A8AD1D-B15C-4847-B522-9FE9589D9F2B}
 		{BA4228AE-5A2E-4670-AA64-74AE76721FED} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
 		{0B662E10-E012-49FE-9D0D-E297D90C1CA9} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
+		{4536558D-3287-418B-B2FF-8B11E7A7D947} = {4A5FB8D7-EAA0-4717-84E4-B986FD3EF1EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07B728C3-B3B3-4235-ADB5-ED068ADD5C7D}

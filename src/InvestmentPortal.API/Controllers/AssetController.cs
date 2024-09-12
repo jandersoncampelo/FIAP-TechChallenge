@@ -53,7 +53,7 @@ namespace InvestmentPortal.API.Controllers
 
         [HttpPost(Name = "CreateAsset")]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        //[Authorize(Roles = Permissoes.Admin)]
+        [Authorize(Roles = Permissoes.Admin)]
         public async Task<IActionResult> PostAsync([FromBody] AssetCreateDto asset)
         {
             var result = await _appService.CreateAsync(asset);
@@ -81,7 +81,6 @@ namespace InvestmentPortal.API.Controllers
         [Authorize(Roles = Permissoes.Admin)]
         [HttpDelete("{id}", Name = "DeleteAsset")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [Authorize(Roles = Permissoes.Admin)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await _appService.GetByIdAsync(id);
