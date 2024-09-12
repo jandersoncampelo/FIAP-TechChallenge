@@ -56,7 +56,13 @@ Para mais detalhes sobre os endpoints e seus parâmetros, consulte a documentaç
 ## Contribuição
 Contribuições são bem-vindas! Antes de contribuir, abra uma issue para discutir as mudanças propostas.
 
+## Nome dos participantes
+Janderson Campelô - RM352814
+Gustavo Kazuo - RM352485
+Cleyber Silva - RM353086
+André Fonseca -  RM353003
+
 ## Licença
 Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para detalhes.
 
-**Desenvolvido por Janderson Campelo | 2024**
+**Desenvolvido por Janderson Campelo et al. | 2024**
